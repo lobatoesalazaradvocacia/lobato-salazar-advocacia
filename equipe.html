@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<title>Equipe — Lobato &amp; Salazar Advocacia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="assets/crest-gold.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F2116;
+    --ink-2:#16301F;
+    --ink-3:#1C3B26;
+    --gold-1:#F5CEA7;
+    --gold-2:#C69C74;
+    --gold-3:#9C6F46;
+    --gold-4:#724116;
+    --red:#D8291E;
+    --cream:#F3ECDA;
+    --muted:#9FB0A2;
+    --line: rgba(198,156,116,.24);
+    --display:'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    --sans:'Manrope', -apple-system, 'Segoe UI', sans-serif;
+    --max:1680px;
+  }
+  *{ box-sizing:border-box; }
+  html{ color-scheme: dark; scroll-behavior:smooth; }
+  body{
+    margin:0; background: var(--ink); color: var(--cream); font-family: var(--sans);
+    font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  }
+  a{ color:inherit; }
+  img{ max-width:100%; display:block; }
+  h1,h2,h3{ font-family: var(--display); font-weight:600; text-wrap:balance; margin:0; }
+  p{ margin:0; }
+  .wrap{ max-width: var(--max); margin-inline:auto; padding-inline: clamp(20px,6vw,64px); position:relative; }
+  .eyebrow{ font-size:11.5px; letter-spacing:.3em; text-transform:uppercase; color: var(--gold-1); font-weight:600; display:flex; align-items:center; gap:10px; }
+  .eyebrow::before{ content:""; width:8px; height:8px; border-radius:50%; background: var(--red); display:inline-block; }
+
+  .btn{ font-family: var(--sans); font-weight:700; font-size:13.5px; letter-spacing:.03em; padding:15px 32px; border-radius:2px; display:inline-flex; align-items:center; gap:10px; text-decoration:none; border:1px solid transparent; text-transform:uppercase; }
+  .btn-gold{ background: linear-gradient(135deg, var(--gold-1), var(--gold-3)); color:#20140A; }
+  .btn-gold:hover{ filter:brightness(1.08); }
+  .btn-line{ border-color: var(--gold-4); color: var(--cream); }
+  .btn-line:hover{ border-color: var(--gold-1); color: var(--gold-1); }
+
+  .glow{ position:absolute; border-radius:50%; filter: blur(130px); pointer-events:none; opacity:.16; z-index:0; background: var(--gold-3); }
+
+  header{ position:fixed; top:0; left:0; right:0; z-index:50; padding-block:18px; transition: background .3s, padding .3s, border-color .3s; border-bottom:1px solid transparent; }
+  header.scrolled{ background: rgba(15,33,22,.9); backdrop-filter: blur(10px); padding-block:10px; border-color: var(--line); }
+  header .row{ display:flex; align-items:center; justify-content:space-between; gap:24px; }
+  .header-cta{ display:flex; align-items:center; gap:12px; }
+  .menu-toggle{
+    display:none; flex-direction:column; justify-content:center; gap:5px;
+    width:40px; height:40px; background:none; border:1px solid var(--line); border-radius:2px; cursor:pointer; flex:none;
+  }
+  .menu-toggle span{ display:block; width:18px; height:1.5px; background: var(--gold-1); margin-inline:auto; transition: transform .25s, opacity .25s; }
+  .menu-toggle[aria-expanded="true"] span:nth-child(1){ transform: translateY(6.5px) rotate(45deg); }
+  .menu-toggle[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  .menu-toggle[aria-expanded="true"] span:nth-child(3){ transform: translateY(-6.5px) rotate(-45deg); }
+  .mobile-menu{ display:none; }
+  .brand{ display:block; text-decoration:none; }
+  .brand img{ height:46px; width:auto; }
+  nav{ display:flex; align-items:center; gap:36px; }
+  nav a{ font-size:12.5px; letter-spacing:.1em; text-transform:uppercase; text-decoration:none; color:#D9E2DA; }
+  nav a:hover, nav a.active{ color: var(--gold-1); }
+
+  .page-hero{ padding-block: clamp(120px,17vw,170px) clamp(48px,7vw,72px); position:relative; z-index:1; }
+  .page-hero h1{ font-size: clamp(38px,6vw,72px); line-height:1.02; max-width:16ch; }
+  .page-hero p{ margin-top:22px; max-width:60ch; font-size: clamp(16px,1.5vw,18px); color:#D3DCD4; }
+
+  section{ padding-block: clamp(48px,8vw,96px); position:relative; z-index:1; }
+
+  .partner{ display:grid; grid-template-columns: .42fr .58fr; gap: clamp(32px,6vw,80px); align-items:start; padding-block: clamp(40px,7vw,72px); border-top:1px solid var(--line); }
+  .partner:last-child{ border-bottom:1px solid var(--line); }
+  .partner.reverse{ direction:rtl; }
+  .partner.reverse > *{ direction:ltr; }
+
+  .avatar{
+    aspect-ratio: 4 / 5; border:1px solid var(--line); border-radius:6px; background: var(--ink-2);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; text-align:center; padding:24px;
+  }
+  .avatar .initials{ font-family: var(--display); font-weight:600; font-size: clamp(48px,7vw,84px); line-height:1; background: linear-gradient(135deg, var(--gold-1), var(--gold-3)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .avatar .placeholder-note{ font-size:11px; letter-spacing:.08em; text-transform:uppercase; color: var(--muted); border-top:1px solid var(--line); padding-top:12px; width:80%; }
+
+  .partner-body .eyebrow{ margin-bottom:6px; }
+  .partner-body h2{ font-size: clamp(28px,3.4vw,42px); }
+  .partner-body .role{ font-family: var(--display); font-style:italic; font-size: clamp(18px,2vw,22px); color: var(--gold-1); margin-top:10px; }
+  .partner-body .oab{ margin-top:14px; font-family: var(--sans); font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; color: var(--muted); }
+  .partner-body .bio{ margin-top:24px; display:flex; flex-direction:column; gap:14px; max-width:62ch; }
+  .partner-body .bio p{ color:#C9D2CA; font-size:15.5px; }
+  .bio .pending{ border:1px dashed var(--line); border-radius:4px; padding:18px 20px; color: var(--muted); font-style:italic; font-size:14.5px; }
+
+  footer{ padding-block: 36px; border-top:1px solid var(--line); }
+  .footer-row{ display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
+  .footer-brand{ display:flex; align-items:center; gap:12px; }
+  .footer-brand img{ height:34px; }
+  .footer-note{ font-size:11.5px; color: var(--muted); max-width:60ch; line-height:1.7; }
+  .footer-links{ display:flex; gap:22px; }
+  .footer-links a{ font-size:12.5px; text-decoration:none; color:#D9E2DA; letter-spacing:.05em; text-transform:uppercase; }
+  .footer-links a:hover{ color: var(--gold-1); }
+
+  .whatsapp-float{
+    position:fixed; right: clamp(16px,3vw,28px); bottom: clamp(16px,3vw,28px); z-index:60;
+    width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    background: linear-gradient(135deg, var(--gold-1), var(--gold-3)); box-shadow: 0 8px 24px rgba(0,0,0,.35);
+    transition: transform .2s;
+  }
+  .whatsapp-float:hover{ transform: scale(1.06); }
+  .whatsapp-float svg{ width:30px; height:30px; }
+
+  @media (max-width: 900px){
+    header .wrap{ padding-inline: 16px; }
+    nav{ display:none; }
+    .header-cta{ display:none; }
+    .menu-toggle{ display:flex; }
+    .brand img{ height:36px; }
+    .mobile-menu{
+      display:flex; flex-direction:column; gap:2px; max-height:0; overflow:hidden;
+      background: var(--ink-2); border-top:1px solid transparent; transition: max-height .3s ease;
+    }
+    .mobile-menu.open{ max-height:460px; border-top-color: var(--line); }
+    .mobile-menu a{
+      padding: 16px clamp(20px,6vw,64px); font-size:14px; letter-spacing:.06em; text-transform:uppercase;
+      text-decoration:none; color:#D9E2DA; border-bottom:1px solid var(--line);
+    }
+    .mobile-menu a.btn{ margin: 14px clamp(20px,6vw,64px); text-align:center; justify-content:center; border-bottom:none; }
+    .partner, .partner.reverse{ grid-template-columns:1fr; direction:ltr; }
+    .avatar{ max-width:280px; margin-inline:auto; }
+    .footer-row{ flex-direction:column; align-items:flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<div class="glow" style="width:560px;height:560px;top:-220px;right:-160px;"></div>
+<div class="glow" style="width:420px;height:420px;top:920px;left:-180px;opacity:.16;"></div>
+
+<header id="site-header">
+  <div class="wrap row">
+    <a class="brand" href="index.html">
+      <img src="assets/lockup-gold.png" alt="Lobato &amp; Salazar Advocacia">
+    </a>
+    <nav>
+      <a href="index.html#atuacao">Atuação</a>
+      <a href="equipe.html" class="active">Equipe</a>
+      <a href="index.html#contato">Contato</a>
+    </nav>
+    <div class="header-cta">
+      <a class="btn btn-line" href="https://web-production-42a11.up.railway.app/portal/login/" target="_blank" rel="noopener">Área do Cliente</a>
+      <a class="btn btn-gold" href="index.html#contato">Fale Conosco</a>
+    </div>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-menu" id="mobile-menu">
+    <a href="index.html#atuacao">Atuação</a>
+    <a href="equipe.html">Equipe</a>
+    <a href="index.html#contato">Contato</a>
+    <a href="https://web-production-42a11.up.railway.app/portal/login/" target="_blank" rel="noopener">Área do Cliente</a>
+    <a class="btn btn-gold" href="index.html#contato">Fale Conosco</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow">A Equipe</div>
+    <h1 style="margin-top:18px;">Quem conduz a sua causa.</h1>
+    <p>Dois advogados, uma só equipe — cada processo é acompanhado de perto por quem assina a inscrição na OAB e responde por ele do início ao fim.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+
+    <div class="partner">
+      <div class="avatar">
+        <span class="initials">ML</span>
+        <span class="placeholder-note">Foto a ser adicionada</span>
+      </div>
+      <div class="partner-body">
+        <div class="eyebrow">Sócio</div>
+        <h2>Miguel Victor Carvalho Lobato</h2>
+        <div class="role">[Frase de posicionamento — em breve]</div>
+        <div class="oab">OAB/MA nº 28.210</div>
+        <div class="bio">
+          <div class="pending">Biografia em preparação, com base no currículo Lattes: formação, ano de graduação, especializações, tempo de atuação e áreas de destaque entram aqui assim que o conteúdo chegar.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="partner reverse">
+      <div class="avatar">
+        <span class="initials">VS</span>
+        <span class="placeholder-note">Foto a ser adicionada</span>
+      </div>
+      <div class="partner-body">
+        <div class="eyebrow">Sócia</div>
+        <h2>Valdenice Farias de Sousa Salazar</h2>
+        <div class="role">[Frase de posicionamento — em breve]</div>
+        <div class="oab">OAB/MA nº 29.357</div>
+        <div class="bio">
+          <div class="pending">Biografia em preparação: formação, especializações, tempo de atuação e áreas de destaque entram aqui assim que o conteúdo chegar.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <div class="footer-brand">
+      <img src="assets/crest-gold.png" alt="">
+      <div class="footer-note">
+        © 2026 Lobato &amp; Salazar Advocacia — Miguel Victor Carvalho Lobato, OAB/MA nº 28.210 · Valdenice Farias de Sousa Salazar, OAB/MA nº 29.357.<br>
+        Publicidade advocatícia em conformidade com o Provimento 205/2021 do CFOAB.
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="index.html#atuacao">Atuação</a>
+      <a href="equipe.html">Equipe</a>
+      <a href="index.html#contato">Contato</a>
+      <a href="https://web-production-42a11.up.railway.app/portal/login/" target="_blank" rel="noopener">Área do Cliente</a>
+    </div>
+  </div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/5598985246601?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Lobato%20%26%20Salazar%20Advocacia%20e%20gostaria%20de%20um%20atendimento." target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
+  <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M16 3C9.1 3 3.5 8.6 3.5 15.5c0 2.4.7 4.7 1.9 6.6L3 29l7.1-2.3c1.8 1 3.8 1.5 5.9 1.5 6.9 0 12.5-5.6 12.5-12.5S22.9 3 16 3Z" fill="#12200E"/>
+    <path d="M22.3 18.6c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.1-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.3 4.7.7.3 1.3.5 1.8.6.7.2 1.4.2 1.9.1.6-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.1-.3-.2-.6-.3Z" fill="#F5CEA7"/>
+  </svg>
+</a>
+
+<script>
+  const header = document.getElementById('site-header');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+  document.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const closeMenu = () => { mobileMenu.classList.remove('open'); menuToggle.setAttribute('aria-expanded','false'); };
+  menuToggle.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+</script>
+
+</body>
+</html>
