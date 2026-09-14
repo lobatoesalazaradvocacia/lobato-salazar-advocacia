@@ -102,6 +102,7 @@
     flex: 1 1 260px; background: var(--ink-2); border:1px solid var(--line); border-bottom:3px solid var(--gold-4);
     border-radius:4px; padding: 32px 28px; display:flex; flex-direction:column; gap:15px;
     transition: transform .3s, border-color .3s, background .3s;
+    text-decoration:none; color:inherit;
   }
   .area-chip:nth-child(2){ transform: translateY(20px); }
   .area-chip:nth-child(4){ transform: translateY(20px); }
@@ -184,7 +185,7 @@
       <img src="assets/lockup-gold.png" alt="Lobato &amp; Salazar Advocacia">
     </a>
     <nav>
-      <a href="#atuacao">Atuação</a>
+      <a href="atuacao.html">Atuação</a>
       <a href="equipe.html">Equipe</a>
       <a href="#escritorio">Escritório</a>
       <a href="#contato">Contato</a>
@@ -198,7 +199,7 @@
     </button>
   </div>
   <nav class="mobile-menu" id="mobile-menu">
-    <a href="#atuacao">Atuação</a>
+    <a href="atuacao.html">Atuação</a>
     <a href="equipe.html">Equipe</a>
     <a href="#escritorio">Escritório</a>
     <a href="#contato">Contato</a>
@@ -241,26 +242,29 @@
       <p>Escritórios de uma única especialidade abrem mão de enxergar a causa inteira. Aqui, cada frente recebe o mesmo rigor técnico, sob os mesmos advogados.</p>
     </div>
     <div class="areas-flow">
-      <div class="area-chip">
+      <a class="area-chip" href="atuacao.html#trabalhista">
         <span class="num">01</span>
         <h3>Trabalhista</h3>
         <p>Rescisões, verbas, horas extras, assédio moral e ações trabalhistas, para empregados e empregadores.</p>
-      </div>
-      <div class="area-chip">
+      </a>
+      <a class="area-chip" href="atuacao.html#previdenciario">
         <span class="num">02</span>
         <h3>Previdenciário</h3>
         <p>Aposentadorias, benefícios por incapacidade, pensão por morte, BPC/LOAS e revisões junto ao INSS.</p>
-      </div>
-      <div class="area-chip">
+      </a>
+      <a class="area-chip" href="atuacao.html#civel-familia">
         <span class="num">03</span>
         <h3>Cível &amp; Família</h3>
         <p>Contratos, responsabilidade civil, inventários, divórcio, partilha de bens e guarda.</p>
-      </div>
-      <div class="area-chip">
+      </a>
+      <a class="area-chip" href="atuacao.html#criminal">
         <span class="num">04</span>
         <h3>Criminal</h3>
         <p>Defesa técnica em processos criminais, Tribunal do Júri e casos de Lei de Drogas (Lei 11.343/2006).</p>
-      </div>
+      </a>
+    </div>
+    <div style="margin-top:40px; display:flex; justify-content:center;">
+      <a class="btn btn-line" href="atuacao.html">Ver atuação completa</a>
     </div>
   </div>
 </section>
@@ -309,7 +313,7 @@
       </div>
     </div>
     <div class="footer-links">
-      <a href="#atuacao">Atuação</a>
+      <a href="atuacao.html">Atuação</a>
       <a href="equipe.html">Equipe</a>
       <a href="#escritorio">Escritório</a>
       <a href="#contato">Contato</a>

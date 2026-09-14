@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8" />
-<title>Equipe · Lobato &amp; Salazar Advocacia</title>
+<title>Áreas de Atuação · Lobato &amp; Salazar Advocacia</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="icon" href="assets/crest-gold.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -70,30 +70,27 @@
   .page-hero h1{ font-size: clamp(38px,6vw,72px); line-height:1.02; max-width:16ch; }
   .page-hero p{ margin-top:22px; max-width:60ch; font-size: clamp(16px,1.5vw,18px); color:#D3DCD4; }
 
-  section{ padding-block: clamp(48px,8vw,96px); position:relative; z-index:1; }
-
-  .partner{ display:grid; grid-template-columns: .42fr .58fr; gap: clamp(32px,6vw,80px); align-items:start; padding-block: clamp(40px,7vw,72px); border-top:1px solid var(--line); }
-  .partner:last-child{ border-bottom:1px solid var(--line); }
-  .partner.reverse{ direction:rtl; }
-  .partner.reverse > *{ direction:ltr; }
-
-  .avatar{
-    aspect-ratio: 4 / 5; border:1px solid var(--line); border-radius:6px; background: var(--ink-2);
-    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; text-align:center; padding:24px;
-    overflow:hidden; position:relative;
+  .toc{ display:flex; flex-wrap:wrap; gap:12px; margin-top:36px; }
+  .toc a{
+    font-size:12px; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; color: var(--gold-1);
+    border:1px solid var(--gold-4); border-radius:999px; padding:9px 20px;
   }
-  .avatar.has-photo{ padding:0; }
-  .avatar.has-photo img{ width:100%; height:100%; object-fit:cover; object-position:50% 20%; border-radius:6px; }
-  .avatar .initials{ font-family: var(--display); font-weight:600; font-size: clamp(48px,7vw,84px); line-height:1; background: linear-gradient(135deg, var(--gold-1), var(--gold-3)); -webkit-background-clip:text; background-clip:text; color:transparent; }
-  .avatar .placeholder-note{ font-size:11px; letter-spacing:.08em; text-transform:uppercase; color: var(--muted); border-top:1px solid var(--line); padding-top:12px; width:80%; }
+  .toc a:hover{ border-color: var(--gold-1); background: var(--ink-2); }
 
-  .partner-body .eyebrow{ margin-bottom:6px; }
-  .partner-body h2{ font-size: clamp(28px,3.4vw,42px); }
-  .partner-body .role{ font-family: var(--display); font-style:italic; font-size: clamp(18px,2vw,22px); color: var(--gold-1); margin-top:10px; }
-  .partner-body .oab{ margin-top:14px; font-family: var(--sans); font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; color: var(--muted); }
-  .partner-body .bio{ margin-top:24px; display:flex; flex-direction:column; gap:14px; max-width:62ch; }
-  .partner-body .bio p{ color:#C9D2CA; font-size:15.5px; }
-  .bio .pending{ border:1px dashed var(--line); border-radius:4px; padding:18px 20px; color: var(--muted); font-style:italic; font-size:14.5px; }
+  .area-block{ padding-block: clamp(48px,8vw,88px); border-top:1px solid var(--line); scroll-margin-top: 110px; position:relative; z-index:1; }
+  .area-head{ display:flex; align-items:baseline; gap:20px; }
+  .area-head .num{ font-family: var(--display); font-weight:600; font-size: clamp(30px,3.6vw,44px); color: var(--gold-4); }
+  .area-head h2{ font-size: clamp(28px,3.6vw,44px); }
+  .area-intro{ margin-top:16px; max-width:70ch; color:#C9D2CA; font-size:15.5px; }
+
+  .topic-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); margin-top:40px; border:1px solid var(--line); }
+  .topic{ background: var(--ink); padding: 26px 28px; }
+  .topic h3{ font-family: var(--sans); font-weight:700; font-size:14.5px; letter-spacing:.02em; color: var(--gold-1); text-transform:uppercase; }
+  .topic p{ margin-top:10px; font-size:14.5px; color:#C4CEC5; line-height:1.65; }
+
+  .cta-band{ padding-block: clamp(56px,9vw,96px); background: var(--ink-2); border-top:1px solid var(--line); text-align:center; position:relative; z-index:1; }
+  .cta-band h2{ font-size: clamp(28px,3.6vw,42px); max-width:20ch; margin-inline:auto; }
+  .cta-band .actions{ display:flex; justify-content:center; gap:18px; margin-top:32px; flex-wrap:wrap; }
 
   footer{ padding-block: 36px; border-top:1px solid var(--line); }
   .footer-row{ display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
@@ -129,8 +126,7 @@
       text-decoration:none; color:#D9E2DA; border-bottom:1px solid var(--line);
     }
     .mobile-menu a.btn{ margin: 14px clamp(20px,6vw,64px); text-align:center; justify-content:center; border-bottom:none; }
-    .partner, .partner.reverse{ grid-template-columns:1fr; direction:ltr; }
-    .avatar{ max-width:280px; margin-inline:auto; }
+    .topic-grid{ grid-template-columns:1fr; }
     .footer-row{ flex-direction:column; align-items:flex-start; }
   }
 </style>
@@ -146,8 +142,9 @@
       <img src="assets/lockup-gold.png" alt="Lobato &amp; Salazar Advocacia">
     </a>
     <nav>
-      <a href="atuacao.html">Atuação</a>
-      <a href="equipe.html" class="active">Equipe</a>
+      <a href="atuacao.html" class="active">Atuação</a>
+      <a href="equipe.html">Equipe</a>
+      <a href="index.html#escritorio">Escritório</a>
       <a href="index.html#contato">Contato</a>
     </nav>
     <div class="header-cta">
@@ -161,6 +158,7 @@
   <nav class="mobile-menu" id="mobile-menu">
     <a href="atuacao.html">Atuação</a>
     <a href="equipe.html">Equipe</a>
+    <a href="index.html#escritorio">Escritório</a>
     <a href="index.html#contato">Contato</a>
     <a href="https://web-production-42a11.up.railway.app/portal/login/" target="_blank" rel="noopener">Área do Cliente</a>
     <a class="btn btn-gold" href="index.html#contato">Fale Conosco</a>
@@ -169,48 +167,84 @@
 
 <section class="page-hero">
   <div class="wrap">
-    <div class="eyebrow">A Equipe</div>
-    <h1 style="margin-top:18px;">Quem conduz a sua causa.</h1>
-    <p>Dois advogados, uma só equipe: cada processo é acompanhado de perto por quem assina a inscrição na OAB e responde por ele do início ao fim.</p>
+    <div class="eyebrow">Áreas de Atuação</div>
+    <h1 style="margin-top:18px;">Quatro frentes. Uma só equipe.</h1>
+    <p>Cada área abaixo é conduzida com o mesmo rigor técnico, sob os mesmos advogados. Veja o que cobrimos em cada uma.</p>
+    <div class="toc">
+      <a href="#trabalhista">Trabalhista</a>
+      <a href="#previdenciario">Previdenciário</a>
+      <a href="#civel-familia">Cível &amp; Família</a>
+      <a href="#criminal">Criminal</a>
+    </div>
   </div>
 </section>
 
-<section>
+<section class="area-block" id="trabalhista">
   <div class="wrap">
-
-    <div class="partner">
-      <div class="avatar has-photo">
-        <img src="assets/team-miguel.jpg" alt="Miguel Victor Carvalho Lobato">
-      </div>
-      <div class="partner-body">
-        <div class="eyebrow">Sócio</div>
-        <h2>Miguel Victor Carvalho Lobato</h2>
-        <div class="role">Advocacia técnica nas frentes trabalhista, previdenciária e criminal.</div>
-        <div class="oab">OAB/MA nº 28.210</div>
-        <div class="bio">
-          <p>Advogado graduado pelo Centro Universitário Estácio de São Luís (2023), atualmente cursando Mestrado Profissional em Direito e Afirmação de Vulneráveis pela Universidade Ceuma (UNICEUMA). Possui especializações em Direito do Trabalho e Processo do Trabalho, Advocacia Previdenciária na Prática, Tribunal do Júri, Prática Avançada de Advocacia na Lei de Drogas e Direito Penal e Processo Penal.</p>
-          <p>Construiu experiência prática em escritórios especializados em Direito Previdenciário antes de assumir a advocacia plena, e hoje atua nas frentes trabalhista, previdenciária e criminal do escritório, também como advogado dativo no Tribunal de Ética e Disciplina (TED) da OAB/MA. Na OAB/MA, é atual Secretário-Geral da Jovem Advocacia e membro da Comissão de Assistência, Defesa e Prerrogativas dos Advogados, atuação ligada à qualificação profissional e à defesa das prerrogativas da advocacia maranhense.</p>
-          <p>Somou à formação jurídica uma trajetória de pesquisa, com passagem pela FAPEMA e pela ACT Promoção da Saúde em projetos de inovação e políticas públicas, além de estudos em Psicanálise, um olhar mais atento ao humano por trás de cada processo, especialmente sensível no trabalho de defesa no Tribunal do Júri.</p>
-        </div>
-      </div>
+    <div class="area-head"><span class="num">01</span><h2>Trabalhista</h2></div>
+    <p class="area-intro">Atuação para empregados e empregadores, da fase de conhecimento à execução, sempre com cálculo técnico e estratégia processual desde o primeiro atendimento.</p>
+    <div class="topic-grid">
+      <div class="topic"><h3>Rescisão e verbas rescisórias</h3><p>Cálculo e cobrança de verbas não pagas, aviso prévio, FGTS e seguro-desemprego.</p></div>
+      <div class="topic"><h3>Horas extras e jornada</h3><p>Horas extras, intervalo intrajornada, banco de horas e adicional noturno.</p></div>
+      <div class="topic"><h3>Assédio moral e dano moral</h3><p>Situações de humilhação, constrangimento e pressão indevida no ambiente de trabalho.</p></div>
+      <div class="topic"><h3>Doenças e acidentes de trabalho</h3><p>Estabilidade acidentária e indenizações por acidente ou doença ocupacional.</p></div>
+      <div class="topic"><h3>Rescisão indireta</h3><p>Quando o empregador descumpre obrigações e o empregado tem justa causa para sair.</p></div>
+      <div class="topic"><h3>Defesa de empregadores</h3><p>Consultoria preventiva e defesa técnica em reclamações trabalhistas.</p></div>
     </div>
+  </div>
+</section>
 
-    <div class="partner reverse">
-      <div class="avatar">
-        <span class="initials">VS</span>
-        <span class="placeholder-note">Foto a ser adicionada</span>
-      </div>
-      <div class="partner-body">
-        <div class="eyebrow">Sócia</div>
-        <h2>Valdenice Farias de Sousa Salazar</h2>
-        <div class="role">[Frase de posicionamento: em breve]</div>
-        <div class="oab">OAB/MA nº 29.357</div>
-        <div class="bio">
-          <div class="pending">Biografia em preparação: formação, especializações, tempo de atuação e áreas de destaque entram aqui assim que o conteúdo chegar.</div>
-        </div>
-      </div>
+<section class="area-block" id="previdenciario">
+  <div class="wrap">
+    <div class="area-head"><span class="num">02</span><h2>Previdenciário</h2></div>
+    <p class="area-intro">Do requerimento administrativo ao recurso judicial contra o INSS, acompanhando cálculos e prazos com atenção técnica.</p>
+    <div class="topic-grid">
+      <div class="topic"><h3>Aposentadorias</h3><p>Por idade, tempo de contribuição, especial e por invalidez.</p></div>
+      <div class="topic"><h3>Benefícios por incapacidade</h3><p>Auxílio-doença, BPC/LOAS e perícias médicas.</p></div>
+      <div class="topic"><h3>Pensão por morte</h3><p>Habilitação de dependentes e revisão de valores.</p></div>
+      <div class="topic"><h3>Revisão de benefícios</h3><p>Recálculo de benefícios já concedidos com valor abaixo do devido.</p></div>
+      <div class="topic"><h3>Recursos administrativos e judiciais</h3><p>Contestação de indeferimentos e cessações indevidas junto ao INSS.</p></div>
+      <div class="topic"><h3>Planejamento previdenciário</h3><p>Simulação da melhor estratégia de aposentadoria antes do requerimento.</p></div>
     </div>
+  </div>
+</section>
 
+<section class="area-block" id="civel-familia">
+  <div class="wrap">
+    <div class="area-head"><span class="num">03</span><h2>Cível &amp; Família</h2></div>
+    <p class="area-intro">Atuação consultiva e contenciosa em contratos, responsabilidade civil, família e sucessões.</p>
+    <div class="topic-grid">
+      <div class="topic"><h3>Contratos</h3><p>Elaboração, revisão e litígios contratuais.</p></div>
+      <div class="topic"><h3>Responsabilidade civil</h3><p>Indenizações por danos materiais e morais.</p></div>
+      <div class="topic"><h3>Divórcio e guarda</h3><p>Divórcio consensual e litigioso, guarda e pensão alimentícia.</p></div>
+      <div class="topic"><h3>Partilha de bens</h3><p>Divisão de patrimônio em divórcios e dissoluções de união estável.</p></div>
+      <div class="topic"><h3>Inventário e sucessões</h3><p>Inventário judicial e extrajudicial, testamento e partilha entre herdeiros.</p></div>
+      <div class="topic"><h3>Cobranças e execuções</h3><p>Cobrança de dívidas e execução de títulos extrajudiciais.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="area-block" id="criminal">
+  <div class="wrap">
+    <div class="area-head"><span class="num">04</span><h2>Criminal</h2></div>
+    <p class="area-intro">Defesa técnica desde o inquérito até o julgamento, com atuação em Tribunal do Júri e Lei de Drogas.</p>
+    <div class="topic-grid">
+      <div class="topic"><h3>Inquéritos e processos criminais</h3><p>Acompanhamento desde a fase policial até a sentença.</p></div>
+      <div class="topic"><h3>Tribunal do Júri</h3><p>Defesa técnica em crimes dolosos contra a vida.</p></div>
+      <div class="topic"><h3>Lei de Drogas</h3><p>Defesa em casos de tráfico, porte e associação (Lei 11.343/2006).</p></div>
+      <div class="topic"><h3>Prisões e medidas cautelares</h3><p>Habeas corpus, liberdade provisória e revisão de medidas cautelares.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Sua causa pode cruzar mais de uma dessas frentes.</h2>
+    <p style="margin-top:14px; color:#D3DCD4;">Fale com o escritório e conduzimos tudo sob a mesma equipe.</p>
+    <div class="actions">
+      <a class="btn btn-gold" href="https://wa.me/5598985246601?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Lobato%20%26%20Salazar%20Advocacia%20e%20gostaria%20de%20um%20atendimento." target="_blank" rel="noopener">Conversar no WhatsApp</a>
+      <a class="btn btn-line" href="index.html#contato">Ver outros contatos</a>
+    </div>
   </div>
 </section>
 
