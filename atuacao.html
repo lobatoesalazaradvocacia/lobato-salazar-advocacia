@@ -88,6 +88,18 @@
   .topic h3{ font-family: var(--sans); font-weight:700; font-size:14.5px; letter-spacing:.02em; color: var(--gold-1); text-transform:uppercase; }
   .topic p{ margin-top:10px; font-size:14.5px; color:#C4CEC5; line-height:1.65; }
 
+  .faq{ margin-top:56px; }
+  .faq-label{ font-size:11.5px; letter-spacing:.2em; text-transform:uppercase; color: var(--muted); margin-bottom:6px; }
+  .faq-item{ border-bottom:1px solid var(--line); }
+  .faq-item summary{
+    cursor:pointer; padding:20px 0; font-family: var(--display); font-weight:600; font-size: clamp(16px,1.8vw,19px);
+    color: var(--cream); display:flex; justify-content:space-between; align-items:center; gap:20px; list-style:none;
+  }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-item summary::after{ content:"+"; color: var(--gold-1); font-size:22px; font-family: var(--display); flex:none; transition: transform .2s; }
+  .faq-item[open] summary::after{ transform: rotate(45deg); }
+  .faq-item .answer{ padding-bottom:22px; color:#C4CEC5; font-size:14.5px; line-height:1.75; max-width:72ch; }
+
   .cta-band{ padding-block: clamp(56px,9vw,96px); background: var(--ink-2); border-top:1px solid var(--line); text-align:center; position:relative; z-index:1; }
   .cta-band h2{ font-size: clamp(28px,3.6vw,42px); max-width:20ch; margin-inline:auto; }
   .cta-band .actions{ display:flex; justify-content:center; gap:18px; margin-top:32px; flex-wrap:wrap; }
@@ -191,6 +203,29 @@
       <div class="topic"><h3>Rescisão indireta</h3><p>Quando o empregador descumpre obrigações e o empregado tem justa causa para sair.</p></div>
       <div class="topic"><h3>Defesa de empregadores</h3><p>Consultoria preventiva e defesa técnica em reclamações trabalhistas.</p></div>
     </div>
+    <div class="faq">
+      <div class="faq-label">Perguntas frequentes</div>
+      <details class="faq-item">
+        <summary>Fui demitido sem justa causa. Quais são meus direitos?</summary>
+        <div class="answer">Aviso prévio (30 dias, mais 3 dias por ano trabalhado), saldo de salário, férias vencidas e proporcionais com 1/3, 13º proporcional, multa de 40% sobre o FGTS, saque do FGTS e seguro-desemprego, quando os requisitos são cumpridos.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Como é calculado o Termo de Rescisão do Contrato de Trabalho?</summary>
+        <div class="answer">O TRCT soma saldo de salário, férias, 13º, aviso prévio e multa do FGTS, com base no tempo de casa e no último salário. A empresa tem até 10 dias corridos após o fim do contrato para pagar e entregar a documentação.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Qual o prazo para entrar com uma ação trabalhista depois de sair do emprego?</summary>
+        <div class="answer">2 anos a partir do fim do contrato. Dentro desse prazo, só é possível cobrar direitos referentes aos últimos 5 anos anteriores ao ajuizamento da ação.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Demissão por acordo (mútuo consentimento): vale a pena aceitar?</summary>
+        <div class="answer">Nessa modalidade o trabalhador recebe metade do aviso prévio, 20% de multa sobre o FGTS e pode sacar até 80% do fundo, mas perde o direito ao seguro-desemprego. A vantagem depende do caso concreto.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Como provar horas extras não pagas?</summary>
+        <div class="answer">Cartão de ponto, escalas, mensagens e testemunhas costumam ser usados como prova. O adicional mínimo sobre a hora extra é de 50% sobre o valor da hora normal.</div>
+      </details>
+    </div>
   </div>
 </section>
 
@@ -205,6 +240,29 @@
       <div class="topic"><h3>Revisão de benefícios</h3><p>Recálculo de benefícios já concedidos com valor abaixo do devido.</p></div>
       <div class="topic"><h3>Recursos administrativos e judiciais</h3><p>Contestação de indeferimentos e cessações indevidas junto ao INSS.</p></div>
       <div class="topic"><h3>Planejamento previdenciário</h3><p>Simulação da melhor estratégia de aposentadoria antes do requerimento.</p></div>
+    </div>
+    <div class="faq">
+      <div class="faq-label">Perguntas frequentes</div>
+      <details class="faq-item">
+        <summary>A aposentadoria por tempo de contribuição acabou?</summary>
+        <div class="answer">Como regra permanente, sim. Mas ela continua valendo para quem já tinha direito adquirido antes da reforma de 2019 ou se enquadra em uma das regras de transição.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Quais são os requisitos da aposentadoria por idade hoje?</summary>
+        <div class="answer">Na regra geral, 65 anos para homens e 62 para mulheres, com tempo mínimo de contribuição de 20 e 15 anos, respectivamente. Regras de transição podem reduzir a idade em casos específicos.</div>
+      </details>
+      <details class="faq-item">
+        <summary>O que é a regra de pontos?</summary>
+        <div class="answer">Soma da idade com o tempo de contribuição. Em 2026, o mínimo exigido é de 103 pontos para homens e 93 para mulheres, com o número subindo gradualmente a cada ano.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Meu benefício foi negado pelo INSS. Isso significa que não tenho direito?</summary>
+        <div class="answer">Não necessariamente. Boa parte das negativas por "tempo insuficiente" acontece por documentação faltando no sistema, não por ausência real do direito. Cabe recurso administrativo ou ação judicial.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Quando tenho direito ao auxílio-doença?</summary>
+        <div class="answer">Quando uma incapacidade temporária impede o trabalho por mais de 15 dias, mediante perícia médica do INSS. Em caso de negativa da perícia, é possível recorrer.</div>
+      </details>
     </div>
   </div>
 </section>
@@ -221,6 +279,29 @@
       <div class="topic"><h3>Inventário e sucessões</h3><p>Inventário judicial e extrajudicial, testamento e partilha entre herdeiros.</p></div>
       <div class="topic"><h3>Cobranças e execuções</h3><p>Cobrança de dívidas e execução de títulos extrajudiciais.</p></div>
     </div>
+    <div class="faq">
+      <div class="faq-label">Perguntas frequentes</div>
+      <details class="faq-item">
+        <summary>Como funciona a partilha de bens no divórcio?</summary>
+        <div class="answer">Depende do regime adotado no casamento. Na comunhão parcial, a mais comum, os bens adquiridos durante a união se dividem igualmente, enquanto herança e patrimônio anterior ao casamento ficam de fora.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Um acordo de partilha feito só entre o casal, sem passar por cartório ou pela Justiça, vale?</summary>
+        <div class="answer">Não. O STJ reafirmou que a partilha de bens precisa constar de ação judicial ou ser formalizada por escritura pública em cartório para ter validade jurídica.</div>
+      </details>
+      <details class="faq-item">
+        <summary>A guarda compartilhada acaba com a obrigação de pagar pensão alimentícia?</summary>
+        <div class="answer">Não. Mesmo na guarda compartilhada, o pagamento de pensão continua, de forma proporcional aos gastos da criança na casa onde ela passa a maior parte do tempo.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Dívidas contraídas durante o casamento também são divididas no divórcio?</summary>
+        <div class="answer">Sim, quando feitas em benefício da família. O juiz analisa o patrimônio líquido, bens menos dívidas, para chegar a uma divisão justa entre as partes.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Preciso declarar o divórcio no Imposto de Renda?</summary>
+        <div class="answer">Sim. Depois da partilha formalizada, cada ex-cônjuge passa a declarar separadamente apenas os bens que ficaram sob sua titularidade.</div>
+      </details>
+    </div>
   </div>
 </section>
 
@@ -233,6 +314,29 @@
       <div class="topic"><h3>Tribunal do Júri</h3><p>Defesa técnica em crimes dolosos contra a vida.</p></div>
       <div class="topic"><h3>Lei de Drogas</h3><p>Defesa em casos de tráfico, porte e associação (Lei 11.343/2006).</p></div>
       <div class="topic"><h3>Prisões e medidas cautelares</h3><p>Habeas corpus, liberdade provisória e revisão de medidas cautelares.</p></div>
+    </div>
+    <div class="faq">
+      <div class="faq-label">Perguntas frequentes</div>
+      <details class="faq-item">
+        <summary>Fui preso em flagrante. O que acontece nas primeiras 24 horas?</summary>
+        <div class="answer">A polícia lavra o auto de prisão em flagrante e a pessoa presa tem direito à audiência de custódia em até 24 horas, quando um juiz decide se mantém a prisão, converte em preventiva ou concede liberdade.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Tenho direito a ficar calado?</summary>
+        <div class="answer">Sim. Ninguém é obrigado a produzir prova contra si mesmo, e o silêncio não pode ser interpretado como confissão nem usado contra a defesa.</div>
+      </details>
+      <details class="faq-item">
+        <summary>O que é audiência de custódia?</summary>
+        <div class="answer">É a apresentação da pessoa presa a um juiz, em até 24 horas, para avaliar a legalidade da prisão e decidir entre prisão preventiva, medidas cautelares ou liberdade.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Posso ser condenado só com base em depoimento, sem provas materiais?</summary>
+        <div class="answer">Depende do crime e do conjunto de provas analisado pelo juiz. Justamente por isso, uma defesa técnica atuando desde a primeira hora faz diferença na condução do caso.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Prisão preventiva é definitiva?</summary>
+        <div class="answer">Não. É uma medida cautelar, revisável a qualquer momento, que pode ser substituída por medidas como tornozeleira eletrônica ou liberdade provisória.</div>
+      </details>
     </div>
   </div>
 </section>
