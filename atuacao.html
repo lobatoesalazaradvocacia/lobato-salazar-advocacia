@@ -70,14 +70,22 @@
   .page-hero h1{ font-size: clamp(38px,6vw,72px); line-height:1.02; max-width:16ch; }
   .page-hero p{ margin-top:22px; max-width:60ch; font-size: clamp(16px,1.5vw,18px); color:#D3DCD4; }
 
-  .toc{ display:flex; flex-wrap:wrap; gap:12px; margin-top:36px; }
-  .toc a{
-    font-size:12px; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; color: var(--gold-1);
-    border:1px solid var(--gold-4); border-radius:999px; padding:9px 20px;
+  .tabs{ display:flex; flex-wrap:wrap; gap:12px; margin-top:36px; }
+  .tab-btn{
+    font-family: var(--sans); font-size:12px; letter-spacing:.08em; text-transform:uppercase; font-weight:700;
+    cursor:pointer; background:none; color: var(--gold-1); border:1px solid var(--gold-4); border-radius:999px; padding:11px 24px;
+    transition: background .2s, color .2s, border-color .2s;
   }
-  .toc a:hover{ border-color: var(--gold-1); background: var(--ink-2); }
+  .tab-btn:hover{ border-color: var(--gold-1); }
+  .tab-btn.active{ background: linear-gradient(135deg, var(--gold-1), var(--gold-3)); color:#20140A; border-color: transparent; }
 
-  .area-block{ padding-block: clamp(48px,8vw,88px); border-top:1px solid var(--line); scroll-margin-top: 110px; position:relative; z-index:1; }
+  .tab-panels{ border-top:1px solid var(--line); margin-top:40px; padding-top: clamp(40px,7vw,64px); position:relative; z-index:1; overflow:hidden; }
+  .tab-panel{ display:none; }
+  .tab-panel.active{ display:block; }
+  .tab-panel.entering{ animation: panelIn .5s cubic-bezier(.2,.7,.2,1); }
+  @keyframes panelIn{ from{ opacity:0; transform: translateX(48px);} to{ opacity:1; transform: translateX(0);} }
+  @media (prefers-reduced-motion: reduce){ .tab-panel.entering{ animation:none; } }
+
   .area-head{ display:flex; align-items:baseline; gap:20px; }
   .area-head .num{ font-family: var(--display); font-weight:600; font-size: clamp(30px,3.6vw,44px); color: var(--gold-4); }
   .area-head h2{ font-size: clamp(28px,3.6vw,44px); }
@@ -182,17 +190,20 @@
     <div class="eyebrow">Áreas de Atuação</div>
     <h1 style="margin-top:18px;">Quatro frentes. Uma só equipe.</h1>
     <p>Cada área abaixo é conduzida com o mesmo rigor técnico, sob os mesmos advogados. Veja o que cobrimos em cada uma.</p>
-    <div class="toc">
-      <a href="#trabalhista">Trabalhista</a>
-      <a href="#previdenciario">Previdenciário</a>
-      <a href="#civel-familia">Cível &amp; Família</a>
-      <a href="#criminal">Criminal</a>
+    <div class="tabs" role="tablist">
+      <button class="tab-btn" data-tab="trabalhista" role="tab">Trabalhista</button>
+      <button class="tab-btn" data-tab="previdenciario" role="tab">Previdenciário</button>
+      <button class="tab-btn" data-tab="civel-familia" role="tab">Cível &amp; Família</button>
+      <button class="tab-btn" data-tab="criminal" role="tab">Criminal</button>
     </div>
   </div>
 </section>
 
-<section class="area-block" id="trabalhista">
+<section>
   <div class="wrap">
+    <div class="tab-panels" id="tab-panels">
+
+    <div class="tab-panel" data-panel="trabalhista">
     <div class="area-head"><span class="num">01</span><h2>Trabalhista</h2></div>
     <p class="area-intro">Atuação para empregados e empregadores, da fase de conhecimento à execução, sempre com cálculo técnico e estratégia processual desde o primeiro atendimento.</p>
     <div class="topic-grid">
@@ -226,11 +237,9 @@
         <div class="answer">O jeito mais simples é guardar o cartão de ponto, prints de mensagens combinando horário, escalas de trabalho, ou contar com colegas que possam confirmar como testemunhas. Qualquer hora extra trabalhada precisa ser paga com pelo menos 50% a mais do valor da sua hora normal.</div>
       </details>
     </div>
-  </div>
-</section>
+    </div>
 
-<section class="area-block" id="previdenciario">
-  <div class="wrap">
+    <div class="tab-panel" data-panel="previdenciario">
     <div class="area-head"><span class="num">02</span><h2>Previdenciário</h2></div>
     <p class="area-intro">Do requerimento administrativo ao recurso judicial contra o INSS, acompanhando cálculos e prazos com atenção técnica.</p>
     <div class="topic-grid">
@@ -264,11 +273,9 @@
         <div class="answer">Quando você fica impossibilitado de trabalhar por mais de 15 dias seguidos por causa de um problema de saúde. Pra conseguir o benefício, precisa passar por uma perícia médica do INSS. Se for negado e você achar que tem direito, pode recorrer.</div>
       </details>
     </div>
-  </div>
-</section>
+    </div>
 
-<section class="area-block" id="civel-familia">
-  <div class="wrap">
+    <div class="tab-panel" data-panel="civel-familia">
     <div class="area-head"><span class="num">03</span><h2>Cível &amp; Família</h2></div>
     <p class="area-intro">Atuação consultiva e contenciosa em contratos, responsabilidade civil, família e sucessões.</p>
     <div class="topic-grid">
@@ -302,11 +309,9 @@
         <div class="answer">Sim. Depois que a partilha for formalizada, cada um passa a declarar separadamente só os bens que ficaram com ele.</div>
       </details>
     </div>
-  </div>
-</section>
+    </div>
 
-<section class="area-block" id="criminal">
-  <div class="wrap">
+    <div class="tab-panel" data-panel="criminal">
     <div class="area-head"><span class="num">04</span><h2>Criminal</h2></div>
     <p class="area-intro">Defesa técnica desde o inquérito até o julgamento, com atuação em Tribunal do Júri e Lei de Drogas.</p>
     <div class="topic-grid">
@@ -337,6 +342,9 @@
         <summary>Prisão preventiva é definitiva?</summary>
         <div class="answer">Não, de jeito nenhum. Ela é uma medida temporária, que pode ser revista a qualquer momento durante o processo, e pode até ser trocada por outras alternativas, como usar tornozeleira eletrônica ou responder em liberdade.</div>
       </details>
+    </div>
+    </div>
+
     </div>
   </div>
 </section>
@@ -391,6 +399,38 @@
     menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+  const tabBtns = [...document.querySelectorAll('.tab-btn')];
+  const panels = [...document.querySelectorAll('.tab-panel')];
+  const validTabs = tabBtns.map(b => b.dataset.tab);
+
+  function showTab(name, opts = {}){
+    if (!validTabs.includes(name)) return;
+    tabBtns.forEach(b => b.classList.toggle('active', b.dataset.tab === name));
+    panels.forEach(p => {
+      const match = p.dataset.panel === name;
+      p.classList.toggle('active', match);
+      p.classList.remove('entering');
+      if (match && !opts.skipAnim) {
+        requestAnimationFrame(() => p.classList.add('entering'));
+      }
+    });
+    if (opts.updateHash !== false) {
+      history.replaceState(null, '', '#' + name);
+    }
+  }
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => showTab(btn.dataset.tab));
+  });
+
+  const initial = validTabs.includes(location.hash.slice(1)) ? location.hash.slice(1) : validTabs[0];
+  showTab(initial, { skipAnim:true, updateHash:false });
+
+  window.addEventListener('hashchange', () => {
+    const name = location.hash.slice(1);
+    if (validTabs.includes(name)) showTab(name, { updateHash:false });
+  });
 </script>
 
 </body>
