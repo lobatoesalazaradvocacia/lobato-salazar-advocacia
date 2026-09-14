@@ -80,7 +80,10 @@
   .avatar{
     aspect-ratio: 4 / 5; border:1px solid var(--line); border-radius:6px; background: var(--ink-2);
     display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; text-align:center; padding:24px;
+    overflow:hidden; position:relative;
   }
+  .avatar.has-photo{ padding:0; }
+  .avatar.has-photo img{ width:100%; height:100%; object-fit:cover; object-position:50% 20%; border-radius:6px; }
   .avatar .initials{ font-family: var(--display); font-weight:600; font-size: clamp(48px,7vw,84px); line-height:1; background: linear-gradient(135deg, var(--gold-1), var(--gold-3)); -webkit-background-clip:text; background-clip:text; color:transparent; }
   .avatar .placeholder-note{ font-size:11px; letter-spacing:.08em; text-transform:uppercase; color: var(--muted); border-top:1px solid var(--line); padding-top:12px; width:80%; }
 
@@ -176,17 +179,18 @@
   <div class="wrap">
 
     <div class="partner">
-      <div class="avatar">
-        <span class="initials">ML</span>
-        <span class="placeholder-note">Foto a ser adicionada</span>
+      <div class="avatar has-photo">
+        <img src="assets/team-miguel.jpg" alt="Miguel Victor Carvalho Lobato">
       </div>
       <div class="partner-body">
         <div class="eyebrow">Sócio</div>
         <h2>Miguel Victor Carvalho Lobato</h2>
-        <div class="role">[Frase de posicionamento — em breve]</div>
+        <div class="role">Advocacia técnica nas frentes trabalhista, previdenciária e criminal.</div>
         <div class="oab">OAB/MA nº 28.210</div>
         <div class="bio">
-          <div class="pending">Biografia em preparação, com base no currículo Lattes: formação, ano de graduação, especializações, tempo de atuação e áreas de destaque entram aqui assim que o conteúdo chegar.</div>
+          <p>Advogado graduado pelo Centro Universitário Estácio de São Luís (2023), atualmente cursando Mestrado Profissional em Direito e Afirmação de Vulneráveis pela Universidade Ceuma (UNICEUMA). Possui especializações em Direito do Trabalho e Processo do Trabalho, Advocacia Previdenciária na Prática, Tribunal do Júri, Prática Avançada de Advocacia na Lei de Drogas e Direito Penal e Processo Penal.</p>
+          <p>Construiu experiência prática em escritórios especializados em Direito Previdenciário antes de assumir a advocacia plena, e hoje atua nas frentes trabalhista, previdenciária e criminal do escritório. Na OAB/MA, exerce a Coordenação da Comissão da Jovem Advocacia e é Conselheiro Estadual da Jovem Advocacia — funções ligadas à qualificação profissional da advocacia maranhense.</p>
+          <p>Somou à formação jurídica uma trajetória de pesquisa, com passagem pela FAPEMA e pela ACT Promoção da Saúde em projetos de inovação e políticas públicas — uma leitura mais ampla do Direito que aplica na estratégia de cada caso.</p>
         </div>
       </div>
     </div>
