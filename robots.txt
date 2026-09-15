@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lobatoesalazaradvocacia.github.io/lobato-salazar-advocacia/sitemap.xml
