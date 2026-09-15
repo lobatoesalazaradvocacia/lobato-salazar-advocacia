@@ -144,6 +144,15 @@
   .footer-links a{ font-size:12.5px; text-decoration:none; color:#D9E2DA; letter-spacing:.05em; text-transform:uppercase; }
   .footer-links a:hover{ color: var(--gold-1); }
 
+  .footer-social{ display:flex; gap:10px; }
+  .footer-social a{
+    width:38px; height:38px; border-radius:50%; border:1px solid var(--gold-4);
+    display:flex; align-items:center; justify-content:center; color: var(--gold-1);
+    transition: border-color .3s var(--ease), background .3s var(--ease), transform .3s var(--ease), color .3s var(--ease);
+  }
+  .footer-social a:hover{ border-color: var(--gold-1); background: var(--ink-3); color: var(--cream); transform: translateY(-2px); }
+  .footer-social svg{ width:17px; height:17px; }
+
   .whatsapp-float{
     position:fixed; right: clamp(16px,3vw,28px); bottom: clamp(16px,3vw,28px); z-index:60;
     width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center;
@@ -436,7 +445,15 @@
       <a href="equipe.html">Equipe</a>
       <a href="index.html#contato">Contato</a>
       <a href="https://web-production-42a11.up.railway.app/portal/login/" target="_blank" rel="noopener">Área do Cliente</a>
-      <a href="https://www.instagram.com/lobatoesalazar.adv/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/lobatoesalazar.adv/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/>
+        </svg>
+      </a>
     </div>
   </div>
 </footer>
