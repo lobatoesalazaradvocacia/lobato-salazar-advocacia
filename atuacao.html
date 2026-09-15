@@ -412,7 +412,7 @@
       p.classList.toggle('active', match);
       p.classList.remove('entering');
       if (match && !opts.skipAnim) {
-        requestAnimationFrame(() => p.classList.add('entering'));
+        p.classList.add('entering');
       }
     });
     if (opts.updateHash !== false) {
