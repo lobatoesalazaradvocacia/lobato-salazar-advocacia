@@ -36,6 +36,10 @@
   body.page-leaving{ opacity:0; }
   @media (prefers-reduced-motion: reduce){ body{ transition:none; } }
   a{ color:inherit; }
+  a:focus-visible, button:focus-visible, summary:focus-visible{
+    outline: none; box-shadow: 0 0 0 3px rgba(245,206,167,.4); border-radius: 2px;
+    transition: box-shadow .3s var(--ease);
+  }
   img{ max-width:100%; display:block; }
   h1,h2,h3{ font-family: var(--display); font-weight:600; text-wrap:balance; margin:0; }
   p{ margin:0; }
@@ -82,9 +86,12 @@
   .tab-btn{
     font-family: var(--sans); font-size:12px; letter-spacing:.08em; text-transform:uppercase; font-weight:700;
     cursor:pointer; background:none; color: var(--gold-1); border:1px solid var(--gold-4); border-radius:999px; padding:11px 24px;
-    transition: background .2s, color .2s, border-color .2s;
+    outline: none; box-shadow: 0 0 0 0 rgba(245,206,167,0);
+    transition: background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease), box-shadow .3s var(--ease), transform .3s var(--ease);
   }
   .tab-btn:hover{ border-color: var(--gold-1); }
+  .tab-btn:active{ transform: scale(.97); }
+  .tab-btn:focus-visible{ box-shadow: 0 0 0 3px rgba(245,206,167,.4); border-color: var(--gold-1); }
   .tab-btn.active{ background: linear-gradient(135deg, var(--gold-1), var(--gold-3)); color:#20140A; border-color: transparent; }
 
   .tab-panels{ border-top:1px solid var(--line); margin-top:40px; padding-top: clamp(40px,7vw,64px); position:relative; z-index:1; overflow:hidden; }

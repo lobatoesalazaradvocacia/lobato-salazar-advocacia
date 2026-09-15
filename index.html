@@ -36,6 +36,10 @@
   body.page-leaving{ opacity:0; }
   @media (prefers-reduced-motion: reduce){ body{ transition:none; } }
   a{ color:inherit; }
+  a:focus-visible, button:focus-visible, summary:focus-visible{
+    outline: none; box-shadow: 0 0 0 3px rgba(245,206,167,.4); border-radius: 2px;
+    transition: box-shadow .3s var(--ease);
+  }
   img{ max-width:100%; display:block; }
   h1,h2,h3{ font-family: var(--display); font-weight:600; text-wrap:balance; margin:0; }
   p{ margin:0; }
