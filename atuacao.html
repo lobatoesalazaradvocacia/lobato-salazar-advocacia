@@ -424,8 +424,10 @@
     btn.addEventListener('click', () => showTab(btn.dataset.tab));
   });
 
-  const initial = validTabs.includes(location.hash.slice(1)) ? location.hash.slice(1) : validTabs[0];
-  showTab(initial, { skipAnim:true, updateHash:false });
+  const hashTab = location.hash.slice(1);
+  const arrivedViaLink = validTabs.includes(hashTab);
+  const initial = arrivedViaLink ? hashTab : validTabs[0];
+  showTab(initial, { skipAnim: !arrivedViaLink, updateHash:false });
 
   window.addEventListener('hashchange', () => {
     const name = location.hash.slice(1);

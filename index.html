@@ -86,9 +86,14 @@
 
   .marquee{ border-top:1px solid var(--line); border-bottom:1px solid var(--line); overflow:hidden; position:relative; z-index:1; background: var(--ink-2); }
   .marquee-track{ display:flex; width:max-content; animation: scroll 48s linear infinite; }
-  .marquee-track span{ font-family: var(--display); font-style:italic; font-size: clamp(19px,2.4vw,28px); color: var(--muted); padding-block:20px; padding-inline:26px; white-space:nowrap; }
-  .marquee-track span b{ color: var(--gold-1); font-weight:600; font-style:normal; }
-  .marquee-track span::after{ content:""; display:inline-block; width:1px; height:16px; background: var(--gold-4); margin-left:26px; vertical-align:middle; }
+  .marquee-track a{
+    font-family: var(--display); font-style:italic; font-size: clamp(19px,2.4vw,28px); color: var(--muted);
+    padding-block:20px; padding-inline:26px; white-space:nowrap; text-decoration:none; transition: color .2s;
+  }
+  .marquee-track a:hover{ color: var(--gold-1); }
+  .marquee-track a b{ color: var(--gold-1); font-weight:600; font-style:normal; transition: color .2s; }
+  .marquee-track a:hover b{ color: var(--cream); }
+  .marquee-track a::after{ content:""; display:inline-block; width:1px; height:16px; background: var(--gold-4); margin-left:26px; vertical-align:middle; }
   @keyframes scroll{ from{ transform: translateX(0);} to{ transform: translateX(-50%);} }
   @media (prefers-reduced-motion: reduce){ .marquee-track{ animation: none; } }
 
@@ -225,10 +230,10 @@
   </div>
 </section>
 
-<div class="marquee" aria-hidden="true">
+<div class="marquee">
   <div class="marquee-track">
-    <span><b>Trabalhista</b></span><span><b>Previdenciário</b></span><span><b>Cível &amp; Família</b></span><span><b>Criminal · Júri e Lei de Drogas</b></span>
-    <span><b>Trabalhista</b></span><span><b>Previdenciário</b></span><span><b>Cível &amp; Família</b></span><span><b>Criminal · Júri e Lei de Drogas</b></span>
+    <a href="atuacao.html#trabalhista"><b>Trabalhista</b></a><a href="atuacao.html#previdenciario"><b>Previdenciário</b></a><a href="atuacao.html#civel-familia"><b>Cível &amp; Família</b></a><a href="atuacao.html#criminal"><b>Criminal · Júri e Lei de Drogas</b></a>
+    <a href="atuacao.html#trabalhista" tabindex="-1" aria-hidden="true"><b>Trabalhista</b></a><a href="atuacao.html#previdenciario" tabindex="-1" aria-hidden="true"><b>Previdenciário</b></a><a href="atuacao.html#civel-familia" tabindex="-1" aria-hidden="true"><b>Cível &amp; Família</b></a><a href="atuacao.html#criminal" tabindex="-1" aria-hidden="true"><b>Criminal · Júri e Lei de Drogas</b></a>
   </div>
 </div>
 
