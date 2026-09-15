@@ -94,12 +94,20 @@
   .tab-btn:focus-visible{ box-shadow: 0 0 0 3px rgba(245,206,167,.4); border-color: var(--gold-1); }
   .tab-btn.active{ background: linear-gradient(135deg, var(--gold-1), var(--gold-3)); color:#20140A; border-color: transparent; }
 
-  .tab-panels{ border-top:1px solid var(--line); margin-top:40px; padding-top: clamp(40px,7vw,64px); position:relative; z-index:1; overflow:hidden; }
-  .tab-panel{ display:none; }
+  .tab-panels{
+    border-top:1px solid var(--line); margin-top:40px; padding-top: clamp(40px,7vw,64px);
+    position:relative; z-index:1; overflow:hidden; transition: height .5s var(--ease);
+  }
+  .tab-panel{ display:none; opacity:1; transform: translateX(0); transition: opacity .35s var(--ease), transform .35s var(--ease); }
   .tab-panel.active{ display:block; }
-  .tab-panel.entering{ animation: panelIn .5s cubic-bezier(.2,.7,.2,1); }
+  .tab-panel.exiting{ opacity:0; transform: translateX(-32px); }
+  .tab-panel.entering{ animation: panelIn .6s var(--ease); }
   @keyframes panelIn{ from{ opacity:0; transform: translateX(48px);} to{ opacity:1; transform: translateX(0);} }
-  @media (prefers-reduced-motion: reduce){ .tab-panel.entering{ animation:none; } }
+  @media (prefers-reduced-motion: reduce){
+    .tab-panels{ transition:none; }
+    .tab-panel{ transition:none; }
+    .tab-panel.entering{ animation:none; }
+  }
 
   .area-head{ display:flex; align-items:baseline; gap:20px; }
   .area-head .num{ font-family: var(--display); font-weight:600; font-size: clamp(30px,3.6vw,44px); color: var(--gold-4); }
@@ -418,21 +426,68 @@
   const tabBtns = [...document.querySelectorAll('.tab-btn')];
   const panels = [...document.querySelectorAll('.tab-panel')];
   const validTabs = tabBtns.map(b => b.dataset.tab);
+  const tabPanelsEl = document.getElementById('tab-panels');
+  const reduceMotionTabs = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let tabTransitioning = false;
+
+  function activateInstant(name){
+    panels.forEach(p => {
+      p.classList.toggle('active', p.dataset.panel === name);
+      p.classList.remove('entering', 'exiting');
+    });
+  }
 
   function showTab(name, opts = {}){
-    if (!validTabs.includes(name)) return;
+    if (!validTabs.includes(name) || tabTransitioning) return;
+    const current = panels.find(p => p.classList.contains('active'));
     tabBtns.forEach(b => b.classList.toggle('active', b.dataset.tab === name));
-    panels.forEach(p => {
-      const match = p.dataset.panel === name;
-      p.classList.toggle('active', match);
-      p.classList.remove('entering');
-      if (match && !opts.skipAnim) {
-        p.classList.add('entering');
-      }
-    });
     if (opts.updateHash !== false) {
       history.replaceState(null, '', '#' + name);
     }
+
+    const next = panels.find(p => p.dataset.panel === name);
+    if (!next || next === current) return;
+
+    if (!current) {
+      panels.forEach(p => {
+        p.classList.toggle('active', p === next);
+        p.classList.remove('entering', 'exiting');
+      });
+      if (!opts.skipAnim && !reduceMotionTabs) next.classList.add('entering');
+      return;
+    }
+
+    if (opts.skipAnim || reduceMotionTabs) {
+      activateInstant(name);
+      return;
+    }
+
+    tabTransitioning = true;
+    tabPanelsEl.style.height = tabPanelsEl.offsetHeight + 'px';
+    current.classList.add('exiting');
+
+    const runOnce = (fn) => { let done = false; return (...a) => { if (done) return; done = true; fn(...a); }; };
+
+    const afterExit = runOnce(() => {
+      current.removeEventListener('transitionend', onExitEnd);
+      current.classList.remove('active', 'exiting');
+      next.classList.add('active');
+      const endHeight = next.scrollHeight;
+      tabPanelsEl.style.height = endHeight + 'px';
+      next.classList.add('entering');
+
+      const afterHeight = runOnce(() => {
+        tabPanelsEl.removeEventListener('transitionend', onHeightEnd);
+        tabPanelsEl.style.height = 'auto';
+        tabTransitioning = false;
+      });
+      const onHeightEnd = (ev) => { if (ev.target === tabPanelsEl && ev.propertyName === 'height') afterHeight(); };
+      tabPanelsEl.addEventListener('transitionend', onHeightEnd);
+      setTimeout(afterHeight, 600);
+    });
+    const onExitEnd = (e) => { if (e.target === current && e.propertyName === 'opacity') afterExit(); };
+    current.addEventListener('transitionend', onExitEnd);
+    setTimeout(afterExit, 400);
   }
 
   tabBtns.forEach(btn => {
