@@ -7,4 +7,4 @@ Site institucional do escritório Lobato & Salazar Advocacia — São Luís/MA.
 
 ## Publicado em
 
-https://lobatoesalazaradvocacia.github.io/lobato-salazar-advocacia/
+https://lobatoesalazar.cloud/
