@@ -202,22 +202,31 @@
   .footer-social a:hover{ border-color: var(--gold-1); background: var(--ink-3); color: var(--cream); transform: translateY(-2px); }
   .footer-social svg{ width:17px; height:17px; }
 
-  @media (max-width: 900px){
-    header .wrap{ padding-inline: 16px; }
+  /* Topo com quatro itens (Área do Cliente, Área da Equipe, Fale Conosco e
+     Instagram): botões sem quebra de linha e logo que não encolhe. Abaixo de
+     1180px eles não cabem ao lado do menu, então o topo passa ao menu
+     recolhível (antes isso só acontecia abaixo de 900px). */
+  .brand{ flex:none; }
+  .header-cta .btn{ white-space:nowrap; padding:12px 18px; font-size:12.5px; }
+  @media (max-width: 1180px){
     nav{ display:none; }
     .header-cta{ display:none; }
     .menu-toggle{ display:flex; }
-    .brand img{ height:36px; }
     .mobile-menu{
       display:flex; flex-direction:column; gap:2px; max-height:0; overflow:hidden;
       background: var(--ink-2); border-top:1px solid transparent; transition: max-height .3s ease;
     }
-    .mobile-menu.open{ max-height:420px; border-top-color: var(--line); }
+    .mobile-menu.open{ max-height:520px; border-top-color: var(--line); }
     .mobile-menu a{
       padding: 16px clamp(20px,6vw,64px); font-size:14px; letter-spacing:.06em; text-transform:uppercase;
       text-decoration:none; color:#D9E2DA; border-bottom:1px solid var(--line);
     }
     .mobile-menu a.btn{ margin: 14px clamp(20px,6vw,64px); text-align:center; justify-content:center; border-bottom:none; }
+  }
+
+  @media (max-width: 900px){
+    header .wrap{ padding-inline: 16px; }
+    .brand img{ height:36px; }
     .hero-grid{ grid-template-columns:1fr; gap:16px; }
     .hero-seal{ max-width:130px; margin-inline:auto; }
     .areas-flow{ flex-direction:column; }
@@ -253,6 +262,7 @@
         </svg>
       </a>
       <a class="btn btn-line" href="https://sistema.lobatoesalazar.cloud/portal/login/" target="_blank" rel="noopener">Área do Cliente</a>
+      <a class="btn btn-line" href="https://sistema.lobatoesalazar.cloud/login/" target="_blank" rel="noopener">Área da Equipe</a>
       <a class="btn btn-gold" href="#contato">Fale Conosco</a>
     </div>
     <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
@@ -265,6 +275,7 @@
     <a href="#escritorio">Escritório</a>
     <a href="#contato">Contato</a>
     <a href="https://sistema.lobatoesalazar.cloud/portal/login/" target="_blank" rel="noopener">Área do Cliente</a>
+    <a href="https://sistema.lobatoesalazar.cloud/login/" target="_blank" rel="noopener">Área da Equipe</a>
     <a class="mobile-social" href="https://www.instagram.com/lobatoesalazar.adv/" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/>
@@ -392,6 +403,7 @@
       <a href="#escritorio">Escritório</a>
       <a href="#contato">Contato</a>
       <a href="https://sistema.lobatoesalazar.cloud/portal/login/" target="_blank" rel="noopener">Área do Cliente</a>
+      <a href="https://sistema.lobatoesalazar.cloud/login/" target="_blank" rel="noopener">Área da Equipe</a>
     </div>
     <div class="footer-social">
       <a href="https://www.instagram.com/lobatoesalazar.adv/" target="_blank" rel="noopener" aria-label="Instagram">
