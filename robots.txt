@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://lobatoesalazar.cloud/sitemap.xml
+Sitemap: https://lobatoesalazar.cloud/artigos/sitemap.xml
